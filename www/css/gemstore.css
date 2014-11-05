@@ -1,0 +1,29 @@
+#title, #subtitle {
+	text-align: center;
+}
+a { 
+	color: #800080; 
+}
+a:hover { 
+	text-decoration: none;
+	color: #7F525D;
+}
+.nav-pills .active a {
+	background-color: #7F525D !important;
+}
+#reviewForm textarea {
+	width: 380px;
+}
+#reviewForm #email {
+	width: 250px;
+}
+/* Form validation highlighting. */
+.ng-invalid.ng-dirty {
+	border-color: #FA787E;
+}
+.ng-valid.ng-dirty {
+	border-color: #78FA89;
+}
+option, textarea, #email {
+	border: 1px solid #DCDCDC !important;
+}

@@ -1,0 +1,14 @@
+<body ng-controller="StoreController as store">
+		<ul class="list-group">
+			<li class="list-group-item" data-ng-repeat="product in store.products" data-ng-hide="product.soldOut">
+				<!--<h3 data-ng-include="'product-title.html'">-->
+				<h3>
+				{{product.name}}
+				<em class="pull-right">{{product.price | currency}}</em>
+				<br/><br/><img alt="{{product.image}}" src="images/bloodstone.gif" data-ng-src="{{product.image}}" /><br/><br/>
+
+				</h3>
+				<product-panels data-ng-controller="PanelController as panel">-->
+				</product-panels>
+			</li>
+		</ul>
