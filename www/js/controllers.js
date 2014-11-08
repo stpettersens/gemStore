@@ -5,6 +5,7 @@ angular.module('starter.controllers', [])
 	// Call the CartService so app can add, remove and list products in user's cart.
 	CartService.init();
 
+	// Call the ReviewsService so app can add reviews for listed products.
 	ReviewsService.init();
 })
 
@@ -27,8 +28,7 @@ angular.module('starter.controllers', [])
 
 	$scope.addToCart = function(name, price, qty) {
 		CartService.add(name, price, qty);
-		console.log('Added ' + name + ' @ $' + price + ' to cart!');
-		toast.showShort('Added item to basket!');
+		toast.showShort('Added item to cart!');
 	}
 })
 
@@ -84,7 +84,7 @@ angular.module('starter.controllers', [])
 		var answer = confirm('Empty cart?');
 		if(answer) {
 			CartService.empty();
-			console.log('Cart emptied!');
+			toast.showShort('Cart emptied!');
 		}
 	}
 })
