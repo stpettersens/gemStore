@@ -1,0 +1,40 @@
+<ion-view title="Gem Store: Cart">
+  <ion-content class="padding">
+    <div ng-controller="CartCtrl as cart">
+    <h3>Cart</h3>
+    <br/<br/>
+    <em ng-show="cart.products.length == 0">Cart is empty.</em>
+    <table class="table table-responsive table-striped table-bordered" ng-show="cart.products.length">
+    	<thead>
+    		<tr>
+    			<th>Product</th>
+    			<th>Unit Price</th>
+    			<th>Qty.</th>
+    			<th>Subtotal Price</th>
+    			<th></th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr ng-repeat="product in cart.products">
+    			<td>{{product.name}}</td>
+    			<td>{{product.price | currency}}</td>
+    			<td>{{product.qty}}</td>
+    			<td class="subtotal">{{product.qty * product.price | currency}}</td>
+    			<td align="center">
+    				<button ng-click="removeFromCart('{{product.name}}')" class="btn btn-default">x</button>
+    			</td>
+    		</tr>
+    	</tbody>
+    </table>
+    <table class="table table-responsive table-bordered" ng-show="cart.products.length">
+        <tr>
+            <td><strong>Total Price</strong></td>
+            <td align="center" id="total">
+                <strong>{{getTotal() | currency}}</strong>
+            </td>
+        </tr>
+    </table>
+    <p><button class="btn btn-default" ng-show="cart.products.length" ng-click="checkOut();">Checkout</button> <button class="btn btn-default" ng-show="cart.products.length" ng-click="emptyCart();">Empty Cart</button></p>
+	</div>
+  </ion-content>
+</ion-view>

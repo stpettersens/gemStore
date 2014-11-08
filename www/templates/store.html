@@ -1,13 +1,70 @@
-	<h2 id="title">Flatlander Crafted Gems</h2>
-	<h4 id="subtitle">- an Angular store -</h4>
-	<body data-ng-controller="StoreController as store">
+<ion-view title="Gem Store: Browse">
+  <ion-content class="padding" ng-controller="StoreCtrl as store">
+  		<table id="throbber" class="table table-responsive">
+  			<tr><td>
+  				<span class="ionicicon-smaller icon ion-loading-c"></span>
+  			</td></tr>
+  		</table>
 		<ul class="list-group">
-			<li class="list-group-item" data-ng-repeat="product in store.products" data-ng-hide="product.soldOut">
-				<!--<h3 data-ng-include="'product-title.html'">-->
+			<!-- product in store.products -->
+			<li class="list-group-item" ng-repeat="product in store.products" data-ng-hide="product.soldOut">
 				<h3>
-				<product-title></product-title>
+				{{product.name}}
+<em class="pull-right">{{product.price | currency}}</em><br/><br/>
+<button class="pull-right btn btn-default" data-ng-show="product.canPurchase" ng-click="addToCart('{{product.name}}', {{product.price}}, 1);">Add to Cart</button
+<br/><br/><img alt="{{product.image}}" src="img/bloodstone.gif" ng-src="{{product.image}}" /><br/><br/>
 				</h3>
-				<product-panels data-ng-controller="PanelController as panel">-->
-				</product-panels>
+		<div ng-controller="PanelCtrl as panel">
+		<ul class="nav nav-pills">
+			<li data-ng-class="{active: panel.isSelected(1)}">
+				<a href data-ng-click="panel.selectTab(1)">Description</a>
 			</li>
-		</ul>
+			<li data-ng-class="{active: panel.isSelected(2)}">
+				<a href data-ng-click="panel.selectTab(2)">Specs</a>
+			</li>
+			<li data-ng-class="{active: panel.isSelected(3)}">
+				<a href data-ng-click="panel.selectTab(3); getReviews('{{product.name}}');">Reviews</a>
+			</li>
+		</ul><br/>
+		<div class="panel" data-ng-show="panel.isSelected(1)">
+			<h4>Description</h4>
+			<p>{{product.description}}</p>
+		</div>
+		<div class="panel" data-ng-show="panel.isSelected(2)">
+			<h4>Specs</h4>
+			<blockquote>None yet</blockquote>
+		</div>
+		<div class="panel" data-ng-show="panel.isSelected(3)">
+			<h4>Reviews</h4>
+			<blockquote ng-show="store.reviews.length" data-ng-repeat="review in store.reviews">
+				<strong>{{review.review.stars}} Stars</strong>
+				<em>{{review.review.body}}</em>
+				<br/><cite>- {{review.review.author}}</cite>
+			</blockquote>
+			<hr/>
+			<form name="reviewForm" id="reviewForm"  data-ng-controller="ReviewCtrl as reviewCtrl"  data-ng-submit="reviewCtrl.addReview(product)" novalidate>
+				<blockquote>
+					<strong>{{reviewCtrl.review.stars}} Stars</strong>
+					<em>{{reviewCtrl.review.body}}</em>
+					<br/><cite>- {{reviewCtrl.review.author}}</cite>
+				</blockquote>
+				<p>
+					<select data-ng-model="reviewCtrl.review.stars" required>
+						<option value="1">1 star</option>
+						<option value="2">2 stars</option>
+						<option value="3">3 stars</option>
+						<option value="4">4 stars</option>
+						<option value="5">5 stars</option>
+					</select>
+				</p>
+				<p>
+					<textarea data-ng-model="reviewCtrl.review.body" placeholder="Your review..." required></textarea>
+				</p>
+				<label for="email">by:</label><input data-ng-model="reviewCtrl.review.author" id="email" type="email" placeholder="you@domain.com" required /><br/>
+				<input class="btn btn-default" type="submit" value="Add Review" />
+			</form>
+		</div>
+		</div>
+	</div>
+  </ion-content>
+</ion-view>

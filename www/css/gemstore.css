@@ -1,12 +1,22 @@
-#title, #subtitle {
+#throbber {
 	text-align: center;
+	border: 0px;
+}
+.ionicicon {
+	font-size: 75px !important;
+}
+.ionicicon-smaller {
+	font-size: 40px !important;
+}
+a:visited {
+	color: #000000;
 }
 a { 
-	color: #800080; 
+	color: #000000; 
 }
 a:hover { 
 	text-decoration: none;
-	color: #7F525D;
+	color: #444444; /*#7A7A7A;*/
 }
 .nav-pills .active a {
 	background-color: #7F525D !important;
