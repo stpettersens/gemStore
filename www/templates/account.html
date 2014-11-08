@@ -1,5 +1,19 @@
 <ion-view title="Gem Store: Account">
   <ion-content class="padding">
-    <h3>Account</h3>
+    <table border="0" class="table table-responsive" style="text-align: center;">
+    <tr><td>
+    <div id="#login">
+    	<h3>Account</h3><br/>
+    	<form name="loginForm" id="loginForm" data-ng-controller="AccountCtrl as accountCtrl" 
+       data-ng-submit="accountCtrl.logInUser(user)"  novalidate>
+    		<input ng-model="accountCtrl.user.name" type="text" placeholder="Username" id="username" required /><br/>
+    		<input ng-model="accountCtrl.user.password" type="password" placeholder="Password" id="password" required /><br/>
+    		<input class="btn btn-default" type="submit" value="Log In" />
+    	</form>
+    </div>
+    <div class="#loggedin">
+
+    </div>
+	</td></tr></table>
   </ion-content>
 </ion-view>

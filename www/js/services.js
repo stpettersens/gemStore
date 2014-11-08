@@ -1,5 +1,33 @@
 angular.module('starter.services', [])
 
+.service('AccountService', function($state) {
+
+	this.init = function() {
+		console.log('Initiated AccountService...');
+		if(!localStorage.getItem('accounts')) {
+			var accounts = [
+				{ loggedIn: false, username: 'sam@gem.tv', password: 'm4gicG3m5', name: 'Sam Saint-Pettersen', id: 1, userCart: [] },
+				{ loggedIn: false, username: 'jeff@gem.tv', password: '1597', name: 'Jeff Johnson', id: 2, userCart: [] },
+				{ loggedIn: false, username: 'laura@daktoafalls.us', password: 'cl4ssyL4ssy', name: 'Laura Lane', id: 3, userCart: []}
+			];
+			localStorage.setItem('accounts', JSON.stringify(accounts));
+			console.log('[Created accounts]');
+		}
+	}
+
+	this.logIn = function(username, password) {
+		var accounts = JSON.parse(localStorage.getItem('accounts'));
+
+		for(var i = 0; i < accounts.length; i++) {
+			if(username == accounts[i].username 
+			&& password == accounts[i].password)
+			{
+				return true;
+			}
+		}
+	}
+})
+
 .service('CartService', function($state) {
 
 	this.init = function() {

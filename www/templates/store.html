@@ -5,9 +5,11 @@
   				<span class="ionicicon-smaller icon ion-loading-c"></span>
   			</td></tr>
   		</table>
+  		<input id="search" type="text" placeholder="Search products..." ng-model="search"/>
+  		<br/>
 		<ul class="list-group">
 			<!-- product in store.products -->
-			<li class="list-group-item" ng-repeat="product in store.products" data-ng-hide="product.soldOut">
+			<li class="list-group-item" ng-repeat="product in store.products | filter:search | orderBy: 'name' " data-ng-hide="product.soldOut">
 				<h3>
 				{{product.name}}
 <em class="pull-right">{{product.price | currency}}</em><br/><br/>

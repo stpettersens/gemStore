@@ -1,6 +1,9 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, CartService, ReviewsService) {
+.controller('AppCtrl', function($scope, AccountService, CartService, ReviewsService) {
+
+	// Call the AccountService so users can log in to app and buy products.
+	AccountService.init();
 
 	// Call the CartService so app can add, remove and list products in user's cart.
 	CartService.init();
@@ -23,7 +26,6 @@ angular.module('starter.controllers', [])
 
 	$scope.getReviews = function(product) {
 		store.reviews = ReviewsService.list(product);
-		console.log(store.reviews); // !
 	}
 
 	$scope.addToCart = function(name, price, qty) {
@@ -52,11 +54,10 @@ angular.module('starter.controllers', [])
 	this.addReview = function(product) {
 		ReviewsService.add(product.name, this.review);
 		this.review = {};
-	};
+	}
 
 	this.clearReviews = function() {
 		ReviewsService.clear();
-		console.log('Cleared all reviews!');
 	}
 })
 
@@ -70,8 +71,7 @@ angular.module('starter.controllers', [])
 		var total = 0;
 		for(var i = 0; i < cart.products.length; i++) {
 			var product = cart.products[i];
-			total += (product.price * product.qty);
-			
+			total += (product.price * product.qty);	
 		}
 		return total;
 	}
@@ -89,7 +89,18 @@ angular.module('starter.controllers', [])
 	}
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, AccountService) {
+
+	this.logInUser = function() {
+		if(AccountService.logIn('sam@gem.tv', 'm4gicG3m5')) {
+			toast.showLong('Succesfully logged in.');
+			console.log('Succesfully logged in.');
+		}
+		else {
+			toast.showLong('Succesfully logged in.');
+			console.log('Incorrect username or password!')
+		}
+	}
 })
 
 .controller('AboutCtrl', function($scope) {

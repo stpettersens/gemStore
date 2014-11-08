@@ -21,10 +21,12 @@ a:hover {
 .nav-pills .active a {
 	background-color: #7F525D !important;
 }
-#reviewForm textarea {
+#reviewForm textarea, #email {
 	width: 380px;
 }
-#reviewForm #email {
+#username, #password {
+	margin-left: auto;
+	margin-right: auto;
 	width: 250px;
 }
 /* Form validation highlighting. */
@@ -34,6 +36,6 @@ a:hover {
 .ng-valid.ng-dirty {
 	border-color: #78FA89;
 }
-option, textarea, #email {
+option, textarea, #email, #username, #search, #password {
 	border: 1px solid #DCDCDC !important;
 }
