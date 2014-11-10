@@ -44,7 +44,7 @@
 				<br/><cite>- {{review.review.author}}</cite>
 			</blockquote>
 			<hr/>
-			<form name="reviewForm" id="reviewForm"  data-ng-controller="ReviewCtrl as reviewCtrl"  data-ng-submit="reviewCtrl.addReview(product)" novalidate>
+			<form name="reviewForm" id="reviewForm"  data-ng-controller="ReviewCtrl as reviewCtrl" data-ng-submit="reviewCtrl.addReview(product)" novalidate>
 				<blockquote>
 					<strong>{{reviewCtrl.review.stars}} Stars</strong>
 					<em>{{reviewCtrl.review.body}}</em>

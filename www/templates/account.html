@@ -4,15 +4,15 @@
     <tr><td>
     <div id="#login">
     	<h3>Account</h3><br/>
-    	<form name="loginForm" id="loginForm" data-ng-controller="AccountCtrl as accountCtrl" 
-       data-ng-submit="accountCtrl.logInUser(user)"  novalidate>
-    		<input ng-model="accountCtrl.user.name" type="text" placeholder="Username" id="username" required /><br/>
-    		<input ng-model="accountCtrl.user.password" type="password" placeholder="Password" id="password" required /><br/>
+    	<form name="loginForm" id="loginForm" data-ng-controller="AccountCtrl as acctCtrl" 
+        data-ng-submit="acctCtrl.logInUser(acctCtrl.username, acctCtrl.password)"  novalidate>  
+    		<input ng-model="acctCtrl.username" type="text" placeholder="E-mail address" id="username" required /><br/>
+    		<input ng-model="acctCtrl.password" type="password" placeholder="Password" id="password" required /><br/>
     		<input class="btn btn-default" type="submit" value="Log In" />
     	</form>
     </div>
-    <div class="#loggedin">
-
+    <div id="#loggedin">
+        blah
     </div>
 	</td></tr></table>
   </ion-content>

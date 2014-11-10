@@ -91,14 +91,19 @@ angular.module('starter.controllers', [])
 
 .controller('AccountCtrl', function($scope, AccountService) {
 
-	this.logInUser = function() {
-		if(AccountService.logIn('sam@gem.tv', 'm4gicG3m5')) {
-			toast.showLong('Succesfully logged in.');
-			console.log('Succesfully logged in.');
+	var status = this;
+	status.loggedIn = false;
+
+	this.logInUser = function(username, password) {
+
+		if(AccountService.logIn(username, password)) {
+			status.loggedIn = true;
+			//toast.showLong('Succesfully logged in.');
+			console.log('Succesfully logged in.')
 		}
 		else {
-			toast.showLong('Succesfully logged in.');
-			console.log('Incorrect username or password!')
+			//toast.showLong('Incorrect username or password!');
+			console.log('Incorrect username or password!');
 		}
 	}
 })
