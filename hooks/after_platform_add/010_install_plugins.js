@@ -15,13 +15,8 @@ var pluginList = [
 
 var fs = require('fs');
 var path = require('path');
-var sys = require('sys');
 var exec = require('child_process').exec;
 
-function puts(error, stdout, stderr)
-	sys.puts(stdout);
-}
-
-plugins.forEach(function(plug) {
-	exec("cordova plugin add " + plug, puts)
+pluginList.forEach(function(plugin) {
+	exec("cordova plugin add " + plugin)
 });
