@@ -4,12 +4,3 @@
 node_modules/
 platforms/
 plugins/
-/plugins/com.chariotsolutions.toast.plugin
-/plugins/org.apache.cordova.inappbrowser
-com.chariotsolutions.toast.plugin
-org.apache.cordova.inappbrowser
-/plugins/com.chariotsolutions.toast.plugin/www
-/plugins/com.chariotsolutions.toast.plugin/.fetch.json
-/plugins/com.chariotsolutions.toast.plugin/package.json
-/plugins/com.chariotsolutions.toast.plugin/plugin.xml
-/plugins/com.chariotsolutions.toast.plugin/README.md
