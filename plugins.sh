@@ -4,5 +4,4 @@
 cordova plugin add com.chariotsolutions.toast.plugin
 
 # Install Apache InAppBrowser
-cordova plugin add https://github.com/apache/cordova-plugin-inappbrowser.git
-
+cordova plugin add org.apache.cordova.inappbrowse
