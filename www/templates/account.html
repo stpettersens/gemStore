@@ -2,17 +2,13 @@
   <ion-content class="padding">
     <table border="0" class="table table-responsive" style="text-align: center;">
     <tr><td>
-    <div id="#login">
+    <div id="#login" ng-controller="AccountCtrl as acctCtrl"  ng-hide="acctCtrl.status.loggedIn">
     	<h3>Account</h3><br/>
-    	<form name="loginForm" id="loginForm" data-ng-controller="AccountCtrl as acctCtrl" 
-        data-ng-submit="acctCtrl.logInUser(acctCtrl.username, acctCtrl.password)"  novalidate>  
+    	<form name="loginForm" id="loginForm" ng-submit="acctCtrl.logInUser(acctCtrl.username, acctCtrl.password)"  novalidate>  
     		<input ng-model="acctCtrl.username" type="text" placeholder="E-mail address" id="username" required /><br/>
     		<input ng-model="acctCtrl.password" type="password" placeholder="Password" id="password" required /><br/>
     		<input class="btn btn-default" type="submit" value="Log In" />
     	</form>
-    </div>
-    <div id="#loggedin">
-        blah
     </div>
 	</td></tr></table>
   </ion-content>

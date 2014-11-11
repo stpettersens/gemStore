@@ -89,7 +89,7 @@ angular.module('starter.controllers', [])
 	}
 })
 
-.controller('AccountCtrl', function($scope, AccountService) {
+.controller('AccountCtrl', function($state, $scope, AccountService) {
 
 	var status = this;
 	status.loggedIn = false;
@@ -99,13 +99,16 @@ angular.module('starter.controllers', [])
 		if(AccountService.logIn(username, password)) {
 			status.loggedIn = true;
 			//toast.showLong('Succesfully logged in.');
-			console.log('Succesfully logged in.')
+			$state.go('tab.myaccount');
 		}
 		else {
 			//toast.showLong('Incorrect username or password!');
-			console.log('Incorrect username or password!');
 		}
 	}
+})
+
+.controller('MyAccountCtrl', function($scope, AccountService) {
+
 })
 
 .controller('AboutCtrl', function($scope) {})
