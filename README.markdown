@@ -1,4 +1,4 @@
-# Flatlanders' Gem Store for Android #
+## Flatlanders' Gem Store for Android ##
 
 Angular.JS Tutorial Project (Flatlanders' Gem Store) ported to an Android app.
 
